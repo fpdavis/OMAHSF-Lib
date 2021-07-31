@@ -38,9 +38,9 @@ function Velocity2(Acceleration, InitialPosition, InitialVelocity, Position) {
     return Math.sqrt(InitialVelocity * InitialVelocity + 2 * Acceleration * (Position - InitialPosition));
 }
 
-function LorentzFactor(Beta) {
+function LorentzFactor(fpRatioOfVToC) {
 
-    return 1 / Math.sqrt(1 - Beta * Beta);    
+    return 1 / Math.sqrt(1 - fpRatioOfVToC * fpRatioOfVToC);    
 }
 
 function RatioOfVToC(c, RelativeVelocity) {
@@ -51,6 +51,10 @@ function RatioOfVToC(c, RelativeVelocity) {
 function LorentzFactor2(c, RelativeVelocity) {
 
     return LorentzFactor(RatioOfVToC(c, RelativeVelocity));
+}
+
+function LorentzFactorReciprocal(fpRatioOfVToC) {
+    return Math.sqrt(1 - fpRatioOfVToC * fpRatioOfVToC);
 }
 
 function RelativisticMass(LorentzFactor, RestMass) {

@@ -60,7 +60,7 @@ function RunUnitTests() {
 	Results = RatioOfVToC(c_MetersSecond, 134071263)
 	DisplayTestResults(sTest, ExpectedResults, Results)
 
-	// LorentzFactor(Beta)
+	// LorentzFactor(fpRatioOfVToC)
 	sTest = "LorentzFactor(0.200)";
 	ExpectedResults = 1.0206207261596576;
 	Results = LorentzFactor(0.200)
@@ -70,6 +70,12 @@ function RunUnitTests() {
 	sTest = "LorentzFactor2(c_MetersSecond, 134071263)";
 	ExpectedResults = 1.0206207261596576;
 	Results = LorentzFactor2(c_MetersSecond, 134071263)
+	DisplayTestResults(sTest, ExpectedResults, Results)
+
+	// LorentzFactorReciprocal(fpRatioOfVToC)
+	sTest = "LorentzFactorReciprocal(0.200)";
+	ExpectedResults = 0.97980;
+	Results = LorentzFactorReciprocal(0.200)
 	DisplayTestResults(sTest, ExpectedResults, Results)
 
 	// RelativisticMass(LorentzFactor, RestMass)
@@ -107,10 +113,10 @@ function RunUnitTests() {
 
 		divUnitTests.innerHTML += sMessage;
 
-		sMessage = "            Test: " + sTest
-			     + "Expected Results: " + ExpectedResults
-			     + "  Actual Results: " + Results
-			+ "         Success: " + bSuccess;
+		sMessage = "\n            Test: " + sTest
+			     + "\nExpected Results: " + ExpectedResults
+			     + "\n  Actual Results: " + Results
+			     + "\n         Success: " + bSuccess;
 
 		MessageLog(sMessage, oVerbosity);		
 	}	
