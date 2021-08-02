@@ -3,60 +3,71 @@ window.onload = function () {
     console.info("Message logging set to " + goVerbosityEnum.Lookup[giVerbosity]);
 }
 
-function Acceleration(DeltaVelocity, DeltaTime) {
+class OMAHSF {
+    constructor() {
+        this.Const = new OMAHSF_Declarations();
+    }
+}
+
+OMAHSF.prototype.Acceleration = function (DeltaVelocity, DeltaTime)  {
     return DeltaVelocity / DeltaTime;
 }
 
 // First equation of motion
-function FinalVelocity(InitialVelocity, Acceleration, Time) {
+OMAHSF.prototype.FinalVelocity = function (InitialVelocity, Acceleration, Time) {
     return InitialVelocity + Acceleration * Time;
 }
 
-function AverageVelocity(DeltaPostion, DeltaTime) {
+OMAHSF.prototype.AverageVelocity = function (DeltaPostion, DeltaTime) {
     return DeltaPostion / DeltaTime;
 }
 
 // Second equation of motion.
-function FinalPosition(InitialPosition, InitalVelocity, Time, Acceleration) {
+OMAHSF.prototype.FinalPosition = function (InitialPosition, InitalVelocity, Time, Acceleration) {
 
     return InitialPosition + InitalVelocity * Time + .5 * Acceleration * Time * Time;
 }
 
-function Displacement(InitalVelocity, Time, Acceleration) {
+OMAHSF.prototype.Displacement = function (InitalVelocity, Time, Acceleration) {
 
     return InitalVelocity * Time + .5 * Acceleration * Time * Time;
 }
 
 // Third equation of motion.
-function Velocity(Acceleration, DeltaPosition, InitialVelocity) {
+OMAHSF.prototype.Velocity = function (Acceleration, DeltaPosition, InitialVelocity) {
 
     return Math.sqrt(InitialVelocity * InitialVelocity + 2 * Acceleration * DeltaPosition);
 }
 
-function Velocity2(Acceleration, InitialPosition, InitialVelocity, Position) {
+OMAHSF.prototype.Velocity2 = function (Acceleration, InitialPosition, InitialVelocity, Position) {
 
     return Math.sqrt(InitialVelocity * InitialVelocity + 2 * Acceleration * (Position - InitialPosition));
 }
 
-function LorentzFactor(fpRatioOfVToC) {
+OMAHSF.prototype.LorentzFactor = function (fpRatioOfVToC) {
 
     return 1 / Math.sqrt(1 - fpRatioOfVToC * fpRatioOfVToC);    
 }
 
-function RatioOfVToC(c, RelativeVelocity) {
+OMAHSF.prototype.RatioOfVToC = function (c, RelativeVelocity) {
 
     return (RelativeVelocity * RelativeVelocity) / (c * c);    
 }
 
-function LorentzFactor2(c, RelativeVelocity) {
+OMAHSF.prototype.LorentzFactor2 = function (c, RelativeVelocity) {
 
-    return LorentzFactor(RatioOfVToC(c, RelativeVelocity));
+    return this.LorentzFactor(this.RatioOfVToC(c, RelativeVelocity));
 }
 
-function LorentzFactorReciprocal(fpRatioOfVToC) {
+OMAHSF.prototype.LorentzFactorReciprocal = function (fpRatioOfVToC) {
     return Math.sqrt(1 - fpRatioOfVToC * fpRatioOfVToC);
 }
 
-function RelativisticMass(LorentzFactor, RestMass) {
+OMAHSF.prototype.RelativisticMass = function (LorentzFactor, RestMass) {
     return LorentzFactor * RestMass;
+}
+
+// This assumes a perfect sphere
+OMAHSF.prototype.GravityAtHeight = function (GravityAtRadius, Height, Radius) {
+    return GravityAtRadius * Math.pow((Radius / (Radius + Height)), 2);    
 }
