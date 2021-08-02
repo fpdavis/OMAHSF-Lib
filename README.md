@@ -29,6 +29,7 @@ OMAHSF-Lib can even be incorporated into command-line tools. Node.js can be run 
 You will need to include Declarations.js and OMAHSF-Lib.js in your project:
 
 `<script type="text/javascript" src="js/Declarations.js" defer="defer"></script>`
+
 `<script type="text/javascript" src="js/OMAHSF-Lib.js" defer="defer"></script>`
 
 Define a new class of OMAHSF() such as:
@@ -38,6 +39,8 @@ Define a new class of OMAHSF() such as:
 You will then be able to reference constants (Const) and methods within the new class:
 
 `let myAverageVelocity = oOMAHSF.AverageVelocity(100, 10);`
+
+`let g = oOMAHSF.Const.Earth.Gravity.Standard`
 
 ### Disclaimer
 
