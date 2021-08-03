@@ -18,6 +18,21 @@ function RunUnitTests() {
 	sTest = `Const.Earth.Gravity.Standard`;
 	DisplayTestResults(sTest, 9.80665, oOMAHSF.Const.Earth.Gravity.Standard);
 
+	sTest = `Const.Earth.Mass`;
+	DisplayTestResults(sTest, 5.9724e24, oOMAHSF.Const.Earth.Mass);
+
+	sTest = `Const.Earth.Density`;
+	DisplayTestResults(sTest, 5514, oOMAHSF.Const.Earth.Density);
+
+	sTest = `Const.Earth.Radius.Mean`;
+	DisplayTestResults(sTest, 6371008.7714, oOMAHSF.Const.Earth.Radius.Mean);
+
+	// GravityAtSurfaceOfSphere(GravitationalConstant, MassOfSphere, Radius)
+	sTest = `GravityAtSurfaceOfSphere(${oOMAHSF.Const.GravitationalConstant.Meters_Kilograms_Seconds}, ${oOMAHSF.Const.Earth.Mass}, ${oOMAHSF.Const.Earth.Radius.Mean})`;
+	ExpectedResults = 9.8206;
+	Results = oOMAHSF.GravityAtSurfaceOfSphere(oOMAHSF.Const.GravitationalConstant.Meters_Kilograms_Seconds, oOMAHSF.Const.Earth.Mass, oOMAHSF.Const.Earth.Radius.Mean);
+	DisplayTestResults(sTest, ExpectedResults, Results);
+
 	// GravityAtHeight(GravityAtRadius, Height, Radius)
 	sTest = `GravityAtHeight(${oOMAHSF.Const.Earth.Gravity.Standard}, 2000000, ${oOMAHSF.Const.Earth.Radius.Mean})`;
 	ExpectedResults = 5.680433599545086;

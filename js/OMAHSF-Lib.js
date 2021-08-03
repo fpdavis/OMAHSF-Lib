@@ -71,3 +71,14 @@ OMAHSF.prototype.RelativisticMass = function (LorentzFactor, RestMass) {
 OMAHSF.prototype.GravityAtHeight = function (GravityAtRadius, Height, Radius) {
     return GravityAtRadius * Math.pow((Radius / (Radius + Height)), 2);    
 }
+
+// Ref14
+// An approximate value for gravity at a distance r from the center of the Earth
+// can be obtained by assuming that the Earth's density is spherically symmetric.
+// The gravity depends only on the mass inside the sphere of radius r.All the
+// contributions from outside cancel out as a consequence of the inverse -
+// square law of gravitation.Another consequence is that the gravity is the
+// same as if all the mass were concentrated at the center. 
+OMAHSF.prototype.GravityAtSurfaceOfSphere = function (GravitationalConstant, MassOfSphere, Radius) {
+    return (GravitationalConstant * MassOfSphere) / (Radius * Radius);
+}

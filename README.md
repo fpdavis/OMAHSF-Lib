@@ -28,9 +28,9 @@ OMAHSF-Lib can even be incorporated into command-line tools. Node.js can be run 
 
 You will need to include Declarations.js and OMAHSF-Lib.js in your project:
 
-`<script type="text/javascript" src="js/Declarations.js" defer="defer"></script>`
+`<script type="text/javascript" src="js/Declarations.js" defer></script>`
 
-`<script type="text/javascript" src="js/OMAHSF-Lib.js" defer="defer"></script>`
+`<script type="text/javascript" src="js/OMAHSF-Lib.js" defer></script>`
 
 Define a new class of OMAHSF() such as:
 
@@ -44,10 +44,7 @@ You will then be able to reference constants (Const) and methods within the new 
 
 ### Disclaimer
 
-It is best practice to build in redundancy into any simulator that may be relied upon for real world usage. It is recommended that a minimum of three libraries such as this one be
-used and results of method calls be compared and verified between libraries. Each library should be built independantly of the others selected. OMAHSF-Lib has been written from
-the ground up, though formulas have been borrowed from many non-code sources such as text books, physics course, and online sources such as Wikipedia. Methods will note the source of the
-formulas used.
+It is best practice to build in redundancy into any simulator that may be relied upon for real world usage. It is recommended that a minimum of three libraries such as this one be used and results of method calls be compared and verified between libraries. Each library should be built independantly of the others selected. OMAHSF-Lib has been written from the ground up, though formulas have been borrowed from many non-code sources such as text books, physics course, and online sources such as Wikipedia. Methods will note the source of the formulas used.
 
 ### Changes (oldest to newest):
 
@@ -58,18 +55,27 @@ formulas used.
 * Created a Const class within the main class so declarations are defined automatically and available in the main object.
 * Added Usage and Disclaimer section
 
+* Added references
+* Added Declarations structure for celestial bodies
+
 ### Creative Commons License Attribution 3.0 
 
 * N/A
 
 ### References
 
-* https://sciencing.com/calculate-trajectories-5213048.html
-* http://hyperphysics.phy-astr.gsu.edu/hbase/traj.html
-* https://en.wikipedia.org/wiki/Orbital_mechanics
-* https://iss-sim.spacex.com/
-* https://www.physicsclassroom.com/class/1DKin/Lesson-6/Kinematic-Equations-and-Free-Fall
-* https://www.physicsclassroom.com/class/1dkin/Lesson-6/Kinematic-Equations
-* https://www.solarsystemscope.com/
-* https://physics.info/acceleration/
-* https://en.wikipedia.org/wiki/Lorentz_factor
+* (1) https://sciencing.com/calculate-trajectories-5213048.html
+* (2) http://hyperphysics.phy-astr.gsu.edu/hbase/traj.html
+* (3) https://en.wikipedia.org/wiki/Orbital_mechanics
+* (4) https://iss-sim.spacex.com/
+* (5) https://www.physicsclassroom.com/class/1DKin/Lesson-6/Kinematic-Equations-and-Free-Fall
+* (6) https://www.physicsclassroom.com/class/1dkin/Lesson-6/Kinematic-Equations
+* (7) https://www.solarsystemscope.com/
+* (8) https://physics.info/acceleration/
+* (9) https://en.wikipedia.org/wiki/Lorentz_factor
+* (10) https://astronomy.stackexchange.com/questions/34856/how-does-the-surface-gravity-on-mars-vary-between-the-equator-and-its-poles
+* (11) https://tharsis.gsfc.nasa.gov/geodesy.html
+* (12) https://nssdc.gsfc.nasa.gov/planetary/factsheet/marsfact.html
+* (13) https://en.wikipedia.org/wiki/Gravitational_constant
+* (14) https://en.wikipedia.org/wiki/Gravity_of_Earth
+* (15) https://www.dummies.com/education/science/physics/how-to-calculate-the-force-of-gravity-on-the-earths-surface/
