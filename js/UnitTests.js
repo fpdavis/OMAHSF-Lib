@@ -15,34 +15,34 @@ function RunUnitTests() {
 	oBenchmark = Benchmark("UnitTests");
 	oOMAHSF = new OMAHSF();
 
-	sTest = `Const.Earth.Gravity.Standard`;
-	DisplayTestResults(sTest, 9.80665, oOMAHSF.Const.Earth.Gravity.Standard);
+	sTest = `Const.Earth.Gravity.Standard.Value`;
+	DisplayTestResults(sTest, 9.80665, oOMAHSF.Const.Earth.Gravity.Standard.Value);
 
-	sTest = `Const.Earth.Mass`;
-	DisplayTestResults(sTest, 5.9724e24, oOMAHSF.Const.Earth.Mass);
+	sTest = `Const.Earth.Mass.Value`;
+	DisplayTestResults(sTest, 5.9724e24, oOMAHSF.Const.Earth.Mass.Value);
 
-	sTest = `Const.Earth.Density`;
-	DisplayTestResults(sTest, 5514, oOMAHSF.Const.Earth.Density);
+	sTest = `Const.Earth.Density.Value`;
+	DisplayTestResults(sTest, 5514, oOMAHSF.Const.Earth.Density.Value);
 
-	sTest = `Const.Earth.Radius.Mean`;
-	DisplayTestResults(sTest, 6371008.7714, oOMAHSF.Const.Earth.Radius.Mean);
+	sTest = `Const.Earth.Radius.Mean.Value`;
+	DisplayTestResults(sTest, 6371008.7714, oOMAHSF.Const.Earth.Radius.Mean.Value);
 
 	// GravityAtSurfaceOfSphere(GravitationalConstant, MassOfSphere, Radius)
-	sTest = `GravityAtSurfaceOfSphere(${oOMAHSF.Const.GravitationalConstant.Meters_Kilograms_Seconds}, ${oOMAHSF.Const.Earth.Mass}, ${oOMAHSF.Const.Earth.Radius.Mean})`;
+	sTest = `GravityAtSurfaceOfSphere(${oOMAHSF.Const.GravitationalConstant.Value}, ${oOMAHSF.Const.Earth.Mass.Value}, ${oOMAHSF.Const.Earth.Radius.Mean.Value})`;
 	ExpectedResults = 9.8206;
-	Results = oOMAHSF.GravityAtSurfaceOfSphere(oOMAHSF.Const.GravitationalConstant.Meters_Kilograms_Seconds, oOMAHSF.Const.Earth.Mass, oOMAHSF.Const.Earth.Radius.Mean);
+	Results = oOMAHSF.GravityAtSurfaceOfSphere(oOMAHSF.Const.GravitationalConstant.Value, oOMAHSF.Const.Earth.Mass.Value, oOMAHSF.Const.Earth.Radius.Mean.Value);
 	DisplayTestResults(sTest, ExpectedResults, Results);
 
 	// GravityAtHeight(GravityAtRadius, Height, Radius)
-	sTest = `GravityAtHeight(${oOMAHSF.Const.Earth.Gravity.Standard}, 2000000, ${oOMAHSF.Const.Earth.Radius.Mean})`;
+	sTest = `GravityAtHeight(${oOMAHSF.Const.Earth.Gravity.Standard.Value}, 2000000, ${oOMAHSF.Const.Earth.Radius.Mean.Value})`;
 	ExpectedResults = 5.680433599545086;
-	Results = oOMAHSF.GravityAtHeight(oOMAHSF.Const.Earth.Gravity.Standard, 2000000, 6371008.7714);
+	Results = oOMAHSF.GravityAtHeight(oOMAHSF.Const.Earth.Gravity.Standard.Value, 2000000, 6371008.7714);
 	DisplayTestResults(sTest, ExpectedResults, Results);
 
 	// LorentzFactor2(c, RelativeVelocity)
-	sTest = `LorentzFactor2(${oOMAHSF.Const.c.MetersPerSecond}, 134071263)`;
+	sTest = `LorentzFactor2(${oOMAHSF.Const.c.Value}, 134071263)`;
 	ExpectedResults = 1.0206207261596576;
-	Results = oOMAHSF.LorentzFactor2(oOMAHSF.Const.c.MetersPerSecond, 134071263);
+	Results = oOMAHSF.LorentzFactor2(oOMAHSF.Const.c.Value, 134071263);
 	DisplayTestResults(sTest, ExpectedResults, Results);
 
 	// Displacement(InitalVelocity, Time, Acceleration) 
@@ -64,9 +64,9 @@ function RunUnitTests() {
 	DisplayTestResults(sTest, ExpectedResults, Results);
 
 	// RatioOfVToC(c, RelativeVelocity)
-	sTest = `RatioOfVToC(${oOMAHSF.Const.c.MetersPerSecond}, 134071263)`;
+	sTest = `RatioOfVToC(${oOMAHSF.Const.c.Value}, 134071263)`;
 	ExpectedResults = 0.200;
-	Results = oOMAHSF.RatioOfVToC(oOMAHSF.Const.c.MetersPerSecond, 134071263);
+	Results = oOMAHSF.RatioOfVToC(oOMAHSF.Const.c.Value, 134071263);
 	DisplayTestResults(sTest, ExpectedResults, Results);
 
 	// LorentzFactor(fpRatioOfVToC)

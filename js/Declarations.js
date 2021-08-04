@@ -1,70 +1,105 @@
+﻿/**
+ * 
+ * @author Phil Davis <pdavis@pobox.com>
+ * 
+ * @class
+ * @classdesc 
+  *
+ * */
+
 class OMAHSF_Declarations {
     constructor() {
-        // Speed of light in a vacuum
+        /** 
+         *  @summary c
+         *  @description Speed of light in a vacuum
+         *  @constant
+         *  @type {number}
+         *  @default
+         *  @example oOMAHSF.Const.c.Value
+         * */
         this.c = {
-            MetersPerSecond: 299792458,
-            MilesPerSecond: 186282.397049
+            Value: 299792458,
+            UnitsOfMeasure: 'm/s',
+            MilesPerSecond: {
+                Value: 186282.397049,
+                UnitsOfMeasure: 'Miles Per Second'
+            }
+                
         };
 
-        // Ref(13)
-        this.GravitationalConstant = { 
-            Parsecs_KilometersPerSecond_SolarMass: 0.00430091,
-            Meters_Kilograms_Seconds: 0.0000000000667430,
-            Dynes_Centimeters_Grams: 0.000000066743
+        /**
+         *  @summary Gravitational Constant
+         *  @description In Newton's law, the Gravitational Constant is the proportionality constant connecting the gravitational force between two bodies with the product of their masses and the inverse square of their distance. In the Einstein field equations, it quantifies the relation between the geometry of spacetime and the energy-momentum tensor
+         *  @see https://en.wikipedia.org/wiki/Gravitational_constant
+         *  @constant
+         *  @type {number}
+         *  @default
+         *  @example oOMAHSF.Const.GravitationalConstant.Value
+         *
+         * */
+        this.GravitationalConstant = {
+            Value: 0.0000000000667430,
+            UnitsOfMeasure: 'm3⋅kg–1⋅s–2',        
+            Parsecs_KilometersPerSecond_SolarMass: {
+                Value: 0.00430091,
+                UnitsOfMeasure: 'pc⋅M⊙–1⋅(km/s)2'
+            },
+            Dynes_Centimeters_Grams: {
+                Value: 0.000000066743,
+                UnitsOfMeasure: 'dyne cm2⋅g–2'
+            }
         };
     }
 }
 
-//OMAHSF_Declarations.prototype.PlanetTemplate = {
-//    Gravity: {
-//        Units: 'Meters Per Second Squared',
-//        Standard: ,
-//        Equatorial: ,
-//        Polar: 
-//    },
-//    Radius: {
-//        Units: 'Meters',
-//        Mean: ,
-//        Equatorial: ,
-//        Polar: ,
-//        Maximum: ,
-//        Minimum: 
-//    }
-//};
-
+/**
+ *  @summary Earth
+ *  @description Measurements for the planet Earth
+ *  @constant
+ *  @type {number}
+ *  @default
+ *  @example oOMAHSF.Const.Earth.Gravity.Standard.Value
+ *
+ * */
 OMAHSF_Declarations.prototype.Earth = {
     Gravity: {
-        Units: 'Meters Per Second Squared',
-        Standard: 9.80665,
-        Equatorial: 9.78033,
-        Polar: 9.832
+        Standard: {Value: 9.80665, UnitsOfMeasure: 'm/s²'},
+        Equatorial: { Value: 9.78033, UnitsOfMeasure: 'm/s²' },
+        Polar: { Value: 9.832, UnitsOfMeasure: 'm/s²' }
     },
     Radius: {
-        Units: 'Meters',
-        Mean: 6371008.7714,
-        Equatorial: 6378137,
-        Polar: 6399593.6259,
-        Maximum: 6384400,
-        Minimum: 6352800
+        Mean: {Value: 6371008.7714, UnitsOfMeasure: 'm'},
+        Equatorial: { Value: 6378137, UnitsOfMeasure: 'm'},
+        Polar: { Value: 6399593.6259, UnitsOfMeasure: 'm'},
+        Maximum: { Value: 6384400, UnitsOfMeasure: 'm'},
+        Minimum: { Value: 6352800, UnitsOfMeasure: 'm'},
     },
-    Mass: 5.9724e24, // (kg)
-    Density: 5514 // (kg/m3)
+    Mass: {Value: 5.9724e24, UnitsOfMeasure: 'kg'},
+    Density: { Value: 5514, UnitsOfMeasure: 'kg/m3' }
 };
 
+/**
+ *  @summary Mars
+ *  @description Measurements for the planet Mars
+ *  @see Ref10, Ref11, Ref12
+ *  @constant
+ *  @type {number}
+ *  @default
+ *  @example oOMAHSF.Const.Mars.Gravity.Standard.Value
+ *
+ * */
 OMAHSF_Declarations.prototype.Mars = {
     Gravity: {
-        Units: 'Meters Per Second Squared',
-        Standard: 3.72076,
-        Equatorial: 3.70703, // Ref10
-        Polar: 3.73493, // Ref10
-        Midlatitudes: 3.71683 // Ref10
+        Standard: { Value: 3.72076, UnitsOfMeasure: 'm/s²' },
+        Equatorial: { Value: 3.70703, UnitsOfMeasure: 'm/s²' }, // Ref10
+        Polar: { Value: 3.73493, UnitsOfMeasure: 'm/s²' }, // Ref10
+        Midlatitudes: { Value: 3.71683, UnitsOfMeasure: 'm/s²' } // Ref10
     },
     Radius: {
-        Units: 'Meters',
-        Mean: 3389508, // Ref11
-        Equatorial: 3396200, // Ref11
-        Polar: 3376200, // Ref12
-        Maximum: 3398627, // Ref12
-        Minimum: 3376200 // Ref12
+        Mean: { Value: 3389508, UnitsOfMeasure: 'm' }, // Ref11
+        Equatorial: { Value: 3396200, UnitsOfMeasure: 'm' }, // Ref11
+        Polar: { Value: 376200, UnitsOfMeasure: 'm' }, // Ref12
+        Maximum: { Value: 3398627, UnitsOfMeasure: 'm' }, // Ref12
+        Minimum: { Value: 3376200, UnitsOfMeasure: 'm' } // Ref12
     }
 };

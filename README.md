@@ -55,8 +55,17 @@ It is best practice to build in redundancy into any simulator that may be relied
 * Created a Const class within the main class so declarations are defined automatically and available in the main object.
 * Added Usage and Disclaimer section
 
-* Added references
+* Added reference structure
 * Added Declarations structure for celestial bodies
+
+* Using JSDoc (https://jsdoc.app/) for inline documentation
+* Every Declaration/Constant is now an object with properties. All constants will contain a minimum
+  of a Value and a UnitsOfMeasure property. They may contain additional object properties that 
+  themselves contain a Value and a UnitsOfMeasure property. This will maintain the units of measure
+  along with the value. This may in the future make it possible to verify that the same units are
+  used during calculations, and even automatically convert to other units if desired/necessary.
+  This could even remove the need to store properties in multiple units if a conversion can be
+  easily done.
 
 ### Creative Commons License Attribution 3.0 
 
