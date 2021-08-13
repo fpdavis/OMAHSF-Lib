@@ -75,7 +75,36 @@ OMAHSF_Declarations.prototype.Earth = {
         Minimum: { Value: 6352800, UnitsOfMeasure: 'm'},
     },
     Mass: {Value: 5.9724e24, UnitsOfMeasure: 'kg'},
-    Density: { Value: 5514, UnitsOfMeasure: 'kg/m3' }
+    Density: { Value: 5514, UnitsOfMeasure: 'kg/m3' },
+    LengthOfDay: { Value: 86400, UnitsOfMeasure: 's' }
+};
+
+/**
+ *  @summary Luna
+ *  @description Measurements for Earth's Moon
+ *  @constant
+ *  @type {number}
+ *  @default
+ *  @example oOMAHSF.Const.Moon.Gravity.Standard.Value
+ *
+ * */
+OMAHSF_Declarations.prototype.Luna = {
+    Gravity: {
+        Standard: { Value: 1.6, UnitsOfMeasure: 'm/s²' }
+    },
+    Radius: {
+        Equatorial: { Value: 3475000, UnitsOfMeasure: 'm' }
+    },
+    Mass: { Value: 0.0735e24, UnitsOfMeasure: 'kg' },
+    Density: { Value: 3340, UnitsOfMeasure: 'kg/m3' },
+    LengthOfDay: { Value: 2551320, UnitsOfMeasure: 's' },
+    Orbit: {
+         Apogee: { Value: 406000000, UnitsOfMeasure: 'm' },
+           Mean: { Value: 384400000, UnitsOfMeasure: 'm' },
+        Perigee: { Value: 363000000, UnitsOfMeasure: 'm' }        
+    },
+    
+    
 };
 
 /**
@@ -101,5 +130,6 @@ OMAHSF_Declarations.prototype.Mars = {
         Polar: { Value: 376200, UnitsOfMeasure: 'm' }, // Ref12
         Maximum: { Value: 3398627, UnitsOfMeasure: 'm' }, // Ref12
         Minimum: { Value: 3376200, UnitsOfMeasure: 'm' } // Ref12
-    }
+    },
+    LengthOfDay: { Value: 88920, UnitsOfMeasure: 's' } // Ref16
 };

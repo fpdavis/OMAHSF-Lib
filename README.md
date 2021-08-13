@@ -67,6 +67,9 @@ It is best practice to build in redundancy into any simulator that may be relied
   This could even remove the need to store properties in multiple units if a conversion can be
   easily done.
 
+* Added more declarations, formulas, and tests
+* Tests now run automatically on index load
+
 ### Creative Commons License Attribution 3.0 
 
 * N/A
@@ -88,3 +91,4 @@ It is best practice to build in redundancy into any simulator that may be relied
 * (13) https://en.wikipedia.org/wiki/Gravitational_constant
 * (14) https://en.wikipedia.org/wiki/Gravity_of_Earth
 * (15) https://www.dummies.com/education/science/physics/how-to-calculate-the-force-of-gravity-on-the-earths-surface/
+* (16) https://www.theplanetstoday.com/planets_information_basic_facts.html

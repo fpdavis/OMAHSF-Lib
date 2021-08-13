@@ -12,8 +12,68 @@ function RunUnitTests() {
 
 	giVerbosity = goVerbosityEnum.Verbose;
 
+	divUnitTests.innerHTML = '';
+
 	oBenchmark = Benchmark("UnitTests");
 	oOMAHSF = new OMAHSF();
+
+	// GravitationalPotentialEnergy(Distance, GravitationalConstant, ObjectMass, WorldMass)
+	// https://www.sparknotes.com/physics/gravitation/potential/problems/
+	sTest = `GravitationalPotentialEnergy(${oOMAHSF.Const.Luna.Orbit.Mean.Value}, ${oOMAHSF.Const.GravitationalConstant.Value}, ${oOMAHSF.Const.Luna.Mass.Value}, ${oOMAHSF.Const.Earth.Mass.Value})`;
+	ExpectedResults = -7.6218e28;
+	Results = oOMAHSF.GravitationalPotentialEnergy(oOMAHSF.Const.Luna.Orbit.Mean.Value, oOMAHSF.Const.GravitationalConstant.Value, oOMAHSF.Const.Luna.Mass.Value, oOMAHSF.Const.Earth.Mass.Value);
+	DisplayTestResults(sTest, ExpectedResults, Results);
+
+	// GeosynchronousOrbit(GravitationalConstant, WorldMass, LengthOfDay)
+	sTest = `GeosynchronousOrbit(GravitationalConstant, WorldMass, LengthOfDay)`;
+	ExpectedResults = 35864;
+	Results = oOMAHSF.GeosynchronousOrbit(oOMAHSF.Const.GravitationalConstant.Value, oOMAHSF.Const.Earth.Mass.Value, oOMAHSF.Const.Earth.LengthOfDay.Value);
+	DisplayTestResults(sTest, ExpectedResults, (Results - oOMAHSF.Const.Earth.Radius.Equatorial.Value) / 1000);
+
+	// MaximumVelocity(BreakingTension, Gravity, Length, Mass)
+	// https://physicskublog.wordpress.com/tag/tension/
+	sTest = `MaximumVelocity(BreakingTension, Gravity, Length, Mass)`;
+	ExpectedResults = 8.1453;
+	Results = oOMAHSF.MaximumVelocity(60, oOMAHSF.Const.Earth.Gravity.Standard.Value, .9, .8);
+	DisplayTestResults(sTest, ExpectedResults, Results);
+
+	// Acceleration_2(Force, Mass) 
+	sTest = `Acceleration_2(Force, Mass)`;
+	ExpectedResults = 0.50000;
+	Results = oOMAHSF.Acceleration_2(500, 1000);
+	DisplayTestResults(sTest, ExpectedResults, Results);
+
+	// Tension(Acceleration, Gravity, Mass)
+	sTest = `Tension(Acceleration, Gravity, Mass)`;
+	ExpectedResults = -37.070;
+	Results = oOMAHSF.Tension(-15, oOMAHSF.Const.Earth.Gravity.Standard.Value, 70);
+	Results = oOMAHSF.NewtonsToKilograms(Results);
+	DisplayTestResults(sTest, ExpectedResults, Results);
+
+	// Newton's Second Law
+	// Force(Acceleration, Mass)
+	sTest = `Force(Acceleration, Mass)`;
+	ExpectedResults = 200;
+	Results = oOMAHSF.Force(10, 20);
+	DisplayTestResults(sTest, ExpectedResults, Results);
+
+	// CentripetalRadius(Acceleration, Velocity)
+	sTest = `CentripetalRadius(5g, 1200 km/hour)`;
+	ExpectedResults = 2.2660;
+	Results = oOMAHSF.CentripetalRadius(5 * oOMAHSF.Const.Earth.Gravity.Standard.Value, 1200 * 1000 / 3600);
+	DisplayTestResults(sTest, ExpectedResults, Results / 1000);
+
+	// TimeForSingleRevolution(TargetGravity, Radius)
+	sTest = `TimeForSingleRevolution(${oOMAHSF.Const.Earth.Gravity.Standard.Value}, 225)`;
+	ExpectedResults = 30.096;
+	Results = oOMAHSF.TimeForSingleRevolution(oOMAHSF.Const.Earth.Gravity.Standard.Value, 225);
+	DisplayTestResults(sTest, ExpectedResults, Results);
+	
+	// CentripetalAcceleration(Radius, Velocity)
+	sTest = `CentripetalAcceleration(100, 31.33)`;
+	ExpectedResults = 9.8157;
+	Results = oOMAHSF.CentripetalAcceleration(100, 31.33);
+	DisplayTestResults(sTest, ExpectedResults, Results);
 
 	sTest = `Const.Earth.Gravity.Standard.Value`;
 	DisplayTestResults(sTest, 9.80665, oOMAHSF.Const.Earth.Gravity.Standard.Value);

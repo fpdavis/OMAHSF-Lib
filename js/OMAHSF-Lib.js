@@ -14,6 +14,7 @@ OMAHSF.prototype.Acceleration = function (DeltaVelocity, DeltaTime)  {
 }
 
 // First equation of motion
+// Kinematic equation of uniformly accelerated motion
 OMAHSF.prototype.FinalVelocity = function (InitialVelocity, Acceleration, Time) {
     return InitialVelocity + Acceleration * Time;
 }
@@ -81,4 +82,60 @@ OMAHSF.prototype.GravityAtHeight = function (GravityAtRadius, Height, Radius) {
 // same as if all the mass were concentrated at the center. 
 OMAHSF.prototype.GravityAtSurfaceOfSphere = function (GravitationalConstant, MassOfSphere, Radius) {
     return (GravitationalConstant * MassOfSphere) / (Radius * Radius);
+}
+
+OMAHSF.prototype.CentripetalAcceleration = function (Radius, Velocity) {
+    return (Velocity * Velocity / Radius);
+}
+
+// Time for a single Revolution
+OMAHSF.prototype.TimeForSingleRevolution = function (TargetGravity, Radius) {
+    return (2 * Math.PI * Math.sqrt(Radius/TargetGravity));
+}
+
+OMAHSF.prototype.CentripetalRadius = function (Acceleration, Velocity) {
+    return (Velocity * Velocity / Acceleration);
+}
+
+// Newton's Second Law
+// Returns Newtons
+OMAHSF.prototype.Force = function (Acceleration, Mass) {
+    return (Mass * Acceleration);
+}
+
+OMAHSF.prototype.Acceleration_2 = function (Force, Mass) {
+    return (Force / Mass);
+}
+
+OMAHSF.prototype.Tension = function (Acceleration, Gravity, Mass) {
+    return (Mass * Acceleration + Mass * Gravity);
+}
+
+OMAHSF.prototype.Mass = function (Acceleration, Weight) {
+    return (Weight / Acceleration);
+}
+
+OMAHSF.prototype.NewtonsToKilograms = function (ForceNewtons) {
+    return (ForceNewtons / oOMAHSF.Const.Earth.Gravity.Standard.Value);
+}
+
+// Example: Ball whirling on the end of string subject to perpendicular gravity well
+// Gravity - Gravitational Acceleration
+// BreakingTension - Maximum tension in string before it breaks
+// Length - String length
+// Mass - Mass of the ball
+// MaximumVelocity - Speed of the ball before string breaks
+OMAHSF.prototype.MaximumVelocity = function (BreakingTension, Gravity, Length, Mass) {
+    return (Math.sqrt((Length * (BreakingTension * BreakingTension - Mass * Mass * Gravity * Gravity)) / (Mass * BreakingTension)));
+}
+
+// Must keep units in mind.
+// Results are from center of world
+OMAHSF.prototype.GeosynchronousOrbit = function (GravitationalConstant, WorldMass, LengthOfDay) {
+    return (Math.cbrt((GravitationalConstant * WorldMass * LengthOfDay * LengthOfDay) / (4 * Math.PI * Math.PI)));
+}
+
+// Returns Joules
+OMAHSF.prototype.GravitationalPotentialEnergy = function (Distance, GravitationalConstant, ObjectMass, WorldMass) {
+    return (-(GravitationalConstant * WorldMass * ObjectMass / Distance));
 }
