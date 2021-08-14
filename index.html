@@ -4,7 +4,6 @@
 
     <TITLE>OMAHSF-Lib Frontend</TITLE>
     <!-- You need to include the following two files in your project to use OMAHSF -->
-    <script type="text/javascript" src="js/Declarations.js" defer></script>
     <script type="text/javascript" src="js/OMAHSF-Lib.js" defer></script>
 
     <!-- These files are used to run and display the Unit Tests -->
@@ -14,18 +13,40 @@
     <link rel="stylesheet" type="text/css" href="css/OMAHSF-Lib-Frontend.css">
 
     <script>
-        window.addEventListener("load", function () {
+        window.addEventListener("DOMContentLoaded", function () {
+            Initialize();
             RunUnitTests();
         });
     </script>
 </HEAD>
 
 <BODY>
-
+    <h2>Orbital Mechanics and Human Space Flight Library</h2>
+    <h3>Quality Assuarance Interface</h3>
+    <hr/>
     <div id="divMain">
-	<button type="button" onClick="RunUnitTests()">Run Unit Tests</button>
-	</div>
-	</br>
+        <button type="button" onClick="RunUnitTests()">Re-run All Unit Tests</button>
+
+        <input id="chkShowSuccessfulTests" type="checkbox" value="true" checked />Show Successful Tests
+        <input id="chkStopOnError" type="checkbox" value="true" checked />Stop On Error
+
+        <hr />
+        <b>Individual Test run</b>
+        <p>
+            <select id="selectAlgorithm" onchange="DisplayAlgorithmParamaters(this)"></select>
+        </p>
+        <div id="divParameters"></div>
+
+        <p>
+            <input type="button" value="Run" onclick="RunIndividualTest()" />
+            <input type="button" id="ShowHideConstants" onclick="ShowHideDiv('divConstants')" value="Toggle Constants" />
+        </p>
+
+        <div id="divIndividualResults"></div>
+        <hr />
+    </div>
+    <div id="divConstants" style="display:none"></div>
+    <br/>
     <div id="divUnitTests">	</div>
 </BODY>
 </HTML>

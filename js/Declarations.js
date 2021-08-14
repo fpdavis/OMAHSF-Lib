@@ -133,3 +133,5 @@ OMAHSF_Declarations.prototype.Mars = {
     },
     LengthOfDay: { Value: 88920, UnitsOfMeasure: 's' } // Ref16
 };
+
+console.info(`Declarations.js loaded succesfully.`);

@@ -1,12 +1,33 @@
-window.onload = function () {
 
-    console.info("Message logging set to " + goVerbosityEnum.Lookup[giVerbosity]);
+DynamicallyLoadScript('js/Declarations.js');
+
+// https://stackoverflow.com/questions/950087/how-do-i-include-a-javascript-file-in-another-javascript-file
+function DynamicallyLoadScript(url) {
+    console.info(`Adding Script Request For: ${url}`);
+
+    var script = document.createElement("script");  // create a script DOM node
+    script.src = url;  // set its src to the provided URL
+
+    document.head.appendChild(script);  // add it to the end of the head section of the page (could change 'head' to 'body' to add it to the end of the body section instead)
+
+    console.info(`Script Request Added For: ${url}`);
 }
 
 class OMAHSF {
-    constructor() {
+    constructor() {        
         this.Const = new OMAHSF_Declarations();
     }
+
+    getAllMethods() {
+        const Methods = [];
+
+        let obj = Object.getPrototypeOf(this);
+        Methods.push(...Object.getOwnPropertyNames(obj));
+
+        return Methods.sort().filter((e, i, arr) => {
+            if (e !== arr[i + 1] && typeof this[e] === 'function' && e !== 'constructor' && e !== 'getAllMethods') return true;
+        });
+}
 }
 
 OMAHSF.prototype.Acceleration = function (DeltaVelocity, DeltaTime)  {
@@ -139,3 +160,8 @@ OMAHSF.prototype.GeosynchronousOrbit = function (GravitationalConstant, WorldMas
 OMAHSF.prototype.GravitationalPotentialEnergy = function (Distance, GravitationalConstant, ObjectMass, WorldMass) {
     return (-(GravitationalConstant * WorldMass * ObjectMass / Distance));
 }
+
+
+
+
+console.info(`OMAHSF-Lib.js loaded succesfully.`);

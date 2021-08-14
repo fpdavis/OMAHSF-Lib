@@ -26,9 +26,7 @@ OMAHSF-Lib can even be incorporated into command-line tools. Node.js can be run 
 
 ### Usage
 
-You will need to include Declarations.js and OMAHSF-Lib.js in your project:
-
-`<script type="text/javascript" src="js/Declarations.js" defer></script>`
+You will need to include OMAHSF-Lib.js in your project. OMAHSF-Lib.js will automatically add a reference to js/Declarations.js to your project. This method of loading Declarations.js will probably not work for Node.js and will need to be modified for that environement:
 
 `<script type="text/javascript" src="js/OMAHSF-Lib.js" defer></script>`
 
@@ -69,6 +67,18 @@ It is best practice to build in redundancy into any simulator that may be relied
 
 * Added more declarations, formulas, and tests
 * Tests now run automatically on index load
+
+* Added a Script Request for Declarations.js inside OMAHSF-Lib.js so only one reference is need
+  by the user to the library. This method of loading Declarations.js will probably not work for
+  Node.js and will need to be modified for that environement. This will be done when the Node.js
+  example project is written or someone submits a pull request with it.
+* Added console messages for when scripts are loaded succesfully.
+
+* Lots of rough enhancements to Quality Assurance Interface.
+* Added checkboxes for Show Successful Tests and Stop On Error.
+* Added Individual Test run form with dynamic input boxes.
+* Added List of constants to automatically populate input boxes when clicked.
+* Laid groundwork to populate an array of test data to run unit tests against.
 
 ### Creative Commons License Attribution 3.0 
 
