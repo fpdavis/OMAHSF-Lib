@@ -161,7 +161,10 @@ OMAHSF.prototype.GravitationalPotentialEnergy = function (Distance, Gravitationa
     return (-(GravitationalConstant * WorldMass * ObjectMass / Distance));
 }
 
-
+// Escape Velocity
+OMAHSF.prototype.EscapeVelocity = function (GravitationalConstant, ObjectMass, ObjectRadius) {
+    return (Math.sqrt((2 * GravitationalConstant * ObjectMass) / ObjectRadius));
+}
 
 
 console.info(`OMAHSF-Lib.js loaded succesfully.`);

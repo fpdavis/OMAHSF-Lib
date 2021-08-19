@@ -23,12 +23,13 @@
 <BODY>
     <h2>Orbital Mechanics and Human Space Flight Library</h2>
     <h3>Quality Assuarance Interface</h3>
-    <hr/>
+    <hr />
     <div id="divMain">
         <button type="button" onClick="RunUnitTests()">Re-run All Unit Tests</button>
 
-        <input id="chkShowSuccessfulTests" type="checkbox" value="true" checked />Show Successful Tests
-        <input id="chkStopOnError" type="checkbox" value="true" checked />Stop On Error
+        <b>|</b> <input id="chkShowSuccessfulTests" type="checkbox" value="true" checked />Show Successful Tests
+        <b>|</b> <input id="chkStopOnError" type="checkbox" value="true" checked />Stop On Error
+        <b>|</b> Precision: <input id="txtPrecision" type="text" class="txtPrecision" pattern="[1-9][0-9]*" oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*)\./g, '$1');" />
 
         <hr />
         <b>Individual Test run</b>
@@ -39,14 +40,31 @@
 
         <p>
             <input type="button" value="Run" onclick="RunIndividualTest()" />
-            <input type="button" id="ShowHideConstants" onclick="ShowHideDiv('divConstants')" value="Toggle Constants" />
+            <input type="button" onclick="ShowHideConstants()" value="Toggle Constants"/>            
         </p>
 
         <div id="divIndividualResults"></div>
         <hr />
     </div>
-    <div id="divConstants" style="display:none"></div>
-    <br/>
+
+
+    <div id="openPopup" class="popupWindow">
+        <div>
+            <div class="popupHeader">
+                <h2>Constants</h2>
+                <a href="#close" title="Close" class="close">X</a>
+            </div>
+            <div id="divConstants" class="popupContent"></div>
+
+            <div class="popupFooter">                
+                <p>Click on a constant to auto-fill the input box that has focus.</p>
+                <div class="clear"></div>
+            </div>
+        </div>
+    </div>
+
+
+    <br />
     <div id="divUnitTests">	</div>
 </BODY>
 </HTML>

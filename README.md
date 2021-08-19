@@ -80,6 +80,9 @@ It is best practice to build in redundancy into any simulator that may be relied
 * Added List of constants to automatically populate input boxes when clicked.
 * Laid groundwork to populate an array of test data to run unit tests against.
 
+* Added a popup div for constants with a little formating
+* Added Escape Velocity
+
 ### Creative Commons License Attribution 3.0 
 
 * N/A

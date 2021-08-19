@@ -4,6 +4,7 @@ var bShowSuccessfulTests;
 var bStopOnError;
 var aDeclarations = [];
 var oHasfocus;
+var iPrecision = 5;
 
 function Initialize() {
 
@@ -22,11 +23,14 @@ function Initialize() {
 
 	DisplayAlgorithmParamaters(document.getElementById("selectAlgorithm"));
 	DisplayDeclarations();
+
+	document.getElementById('txtPrecision').value = iPrecision;
 }
 
-function ShowHideDiv(sDiv) {
-	var oDiv = document.getElementById(sDiv);
-	oDiv.style.display = oDiv.style.display !== 'none' ? 'none' : 'block';
+function ShowHideConstants() {
+	
+	let sURL = window.location.pathname + (window.location.href.indexOf('#openPopup') === -1 ? "#openPopup" : "#close");
+	window.location.replace(sURL);
 };
 
 function DisplayDeclarations() {
@@ -35,11 +39,11 @@ function DisplayDeclarations() {
 
 	PropertiesToArray(oOMAHSF.Const, ""); // the second argument is what the root path should be (for convenience)
 	
-	let sDeclarations = "<table>";
+	let sDeclarations = "<table width='100%'>";
 	for (let iIndex = 0; iIndex < aDeclarations.length - 1; iIndex += 2) {
 		console.info(iIndex);
 		let UnitsOfMeasurementElement = iIndex + 1;
-		sDeclarations += `<tr onclick='PopulateInputField("${aDeclarations[iIndex][1]}", "${aDeclarations[UnitsOfMeasurementElement][1]}")'><td>` + aDeclarations[iIndex][0] + " = " + aDeclarations[iIndex][1] + " " + aDeclarations[UnitsOfMeasurementElement][1] + "</td></tr>";
+		sDeclarations += `<tr onclick='PopulateInputField("${aDeclarations[iIndex][1]}", "${aDeclarations[UnitsOfMeasurementElement][1]}")'><td class='tdDeclaration'>` + aDeclarations[iIndex][0] + " = " + aDeclarations[iIndex][1] + " " + aDeclarations[UnitsOfMeasurementElement][1] + "</td></tr>";
 	}	
 
 	oDivConstants.innerHTML = sDeclarations + "</table>";
@@ -134,14 +138,15 @@ function RunIndividualTest() {
 
 function RunUnitTests() {
 
-	let iPrecision = 5;
 	let iNumberOfTestsRun = 0;
 	let iNumberOfFailedTests = 0;
 	let Results;
 	let sTest;
 	let ExpectedResults;
 	let bSuccess;
-	
+
+	iPrecision = document.getElementById('txtPrecision').value;
+
 	let divUnitTests = document.getElementById('divUnitTests');
 	divUnitTests.innerHTML = '';
 
@@ -209,6 +214,16 @@ function RunUnitTests() {
     }
 
 	function BeginTests() {
+
+        oAlgorithm = "EscapeVelocity"
+        sTest = oAlgorithm + '(' + getParamNames(oOMAHSF[oAlgorithm]).toString().replace(/,/g, ', ') + ')<br/>';
+        sTest += `Call: ${oAlgorithm}(${oOMAHSF.Const.GravitationalConstant.Value}, ${oOMAHSF.Const.Earth.Mass.Value}, ${oOMAHSF.Const.Earth.Radius.Mean.Value})`;
+		ExpectedResults = 11186.344799198427;
+        Results = oOMAHSF.EscapeVelocity(oOMAHSF.Const.GravitationalConstant.Value, oOMAHSF.Const.Earth.Mass.Value, oOMAHSF.Const.Earth.Radius.Mean.Value);
+        bSuccess = WasSuccessfull(ExpectedResults, Results);
+        DisplayTestResults(sTest, ExpectedResults, Results, bSuccess);
+        if (!bSuccess && bStopOnError) { return; }
+
 
 		// GravitationalPotentialEnergy(Distance, GravitationalConstant, ObjectMass, WorldMass)
 		// https://www.sparknotes.com/physics/gravitation/potential/problems/
