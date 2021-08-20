@@ -80,8 +80,12 @@ It is best practice to build in redundancy into any simulator that may be relied
 * Added List of constants to automatically populate input boxes when clicked.
 * Laid groundwork to populate an array of test data to run unit tests against.
 
-* Added a popup div for constants with a little formating
-* Added Escape Velocity
+* Added a popup div for onstants with a little formating.
+* Added Escape Velocity.
+
+* Broke the test data out into its own file and added a LoadTestData() function.
+* Tests are now run against the test data in a loop to greatly simplify the code.
+* UnitsOfMeasure has been shortened to just Units... though even this may be going away!
 
 ### Creative Commons License Attribution 3.0 
 

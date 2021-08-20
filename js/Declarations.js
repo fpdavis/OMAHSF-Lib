@@ -19,10 +19,10 @@ class OMAHSF_Declarations {
          * */
         this.c = {
             Value: 299792458,
-            UnitsOfMeasure: 'm/s',
+            Units: 'm/s',
             MilesPerSecond: {
                 Value: 186282.397049,
-                UnitsOfMeasure: 'Miles Per Second'
+                Units: 'Miles Per Second'
             }
                 
         };
@@ -39,14 +39,14 @@ class OMAHSF_Declarations {
          * */
         this.GravitationalConstant = {
             Value: 0.0000000000667430,
-            UnitsOfMeasure: 'm3⋅kg–1⋅s–2',        
+            Units: 'm3⋅kg–1⋅s–2',        
             Parsecs_KilometersPerSecond_SolarMass: {
                 Value: 0.00430091,
-                UnitsOfMeasure: 'pc⋅M⊙–1⋅(km/s)2'
+                Units: 'pc⋅M⊙–1⋅(km/s)2'
             },
             Dynes_Centimeters_Grams: {
                 Value: 0.000000066743,
-                UnitsOfMeasure: 'dyne cm2⋅g–2'
+                Units: 'dyne cm2⋅g–2'
             }
         };
     }
@@ -63,20 +63,20 @@ class OMAHSF_Declarations {
  * */
 OMAHSF_Declarations.prototype.Earth = {
     Gravity: {
-        Standard: {Value: 9.80665, UnitsOfMeasure: 'm/s²'},
-        Equatorial: { Value: 9.78033, UnitsOfMeasure: 'm/s²' },
-        Polar: { Value: 9.832, UnitsOfMeasure: 'm/s²' }
+        Standard: {Value: 9.80665, Units: 'm/s²'},
+        Equatorial: { Value: 9.78033, Units: 'm/s²' },
+        Polar: { Value: 9.832, Units: 'm/s²' }
     },
     Radius: {
-        Mean: {Value: 6371008.7714, UnitsOfMeasure: 'm'},
-        Equatorial: { Value: 6378137, UnitsOfMeasure: 'm'},
-        Polar: { Value: 6399593.6259, UnitsOfMeasure: 'm'},
-        Maximum: { Value: 6384400, UnitsOfMeasure: 'm'},
-        Minimum: { Value: 6352800, UnitsOfMeasure: 'm'},
+        Mean: {Value: 6371008.7714, Units: 'm'},
+        Equatorial: { Value: 6378137, Units: 'm'},
+        Polar: { Value: 6399593.6259, Units: 'm'},
+        Maximum: { Value: 6384400, Units: 'm'},
+        Minimum: { Value: 6352800, Units: 'm'},
     },
-    Mass: {Value: 5.9724e24, UnitsOfMeasure: 'kg'},
-    Density: { Value: 5514, UnitsOfMeasure: 'kg/m3' },
-    LengthOfDay: { Value: 86400, UnitsOfMeasure: 's' }
+    Mass: {Value: 5.9724e24, Units: 'kg'},
+    Density: { Value: 5514, Units: 'kg/m3' },
+    LengthOfDay: { Value: 86400, Units: 's' }
 };
 
 /**
@@ -90,18 +90,18 @@ OMAHSF_Declarations.prototype.Earth = {
  * */
 OMAHSF_Declarations.prototype.Luna = {
     Gravity: {
-        Standard: { Value: 1.6, UnitsOfMeasure: 'm/s²' }
+        Standard: { Value: 1.6, Units: 'm/s²' }
     },
     Radius: {
-        Equatorial: { Value: 3475000, UnitsOfMeasure: 'm' }
+        Equatorial: { Value: 3475000, Units: 'm' }
     },
-    Mass: { Value: 0.0735e24, UnitsOfMeasure: 'kg' },
-    Density: { Value: 3340, UnitsOfMeasure: 'kg/m3' },
-    LengthOfDay: { Value: 2551320, UnitsOfMeasure: 's' },
+    Mass: { Value: 0.0735e24, Units: 'kg' },
+    Density: { Value: 3340, Units: 'kg/m3' },
+    LengthOfDay: { Value: 2551320, Units: 's' },
     Orbit: {
-         Apogee: { Value: 406000000, UnitsOfMeasure: 'm' },
-           Mean: { Value: 384400000, UnitsOfMeasure: 'm' },
-        Perigee: { Value: 363000000, UnitsOfMeasure: 'm' }        
+         Apogee: { Value: 406000000, Units: 'm' },
+           Mean: { Value: 384400000, Units: 'm' },
+        Perigee: { Value: 363000000, Units: 'm' }        
     },
     
     
@@ -119,19 +119,19 @@ OMAHSF_Declarations.prototype.Luna = {
  * */
 OMAHSF_Declarations.prototype.Mars = {
     Gravity: {
-        Standard: { Value: 3.72076, UnitsOfMeasure: 'm/s²' },
-        Equatorial: { Value: 3.70703, UnitsOfMeasure: 'm/s²' }, // Ref10
-        Polar: { Value: 3.73493, UnitsOfMeasure: 'm/s²' }, // Ref10
-        Midlatitudes: { Value: 3.71683, UnitsOfMeasure: 'm/s²' } // Ref10
+        Standard: { Value: 3.72076, Units: 'm/s²' },
+        Equatorial: { Value: 3.70703, Units: 'm/s²' }, // Ref10
+        Polar: { Value: 3.73493, Units: 'm/s²' }, // Ref10
+        Midlatitudes: { Value: 3.71683, Units: 'm/s²' } // Ref10
     },
     Radius: {
-        Mean: { Value: 3389508, UnitsOfMeasure: 'm' }, // Ref11
-        Equatorial: { Value: 3396200, UnitsOfMeasure: 'm' }, // Ref11
-        Polar: { Value: 376200, UnitsOfMeasure: 'm' }, // Ref12
-        Maximum: { Value: 3398627, UnitsOfMeasure: 'm' }, // Ref12
-        Minimum: { Value: 3376200, UnitsOfMeasure: 'm' } // Ref12
+        Mean: { Value: 3389508, Units: 'm' }, // Ref11
+        Equatorial: { Value: 3396200, Units: 'm' }, // Ref11
+        Polar: { Value: 376200, Units: 'm' }, // Ref12
+        Maximum: { Value: 3398627, Units: 'm' }, // Ref12
+        Minimum: { Value: 3376200, Units: 'm' } // Ref12
     },
-    LengthOfDay: { Value: 88920, UnitsOfMeasure: 's' } // Ref16
+    LengthOfDay: { Value: 88920, Units: 's' } // Ref16
 };
 
 console.info(`Declarations.js loaded succesfully.`);
